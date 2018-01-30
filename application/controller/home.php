@@ -2,7 +2,7 @@
 
 class Home extends Controller {
     /**
-     * PAGE: index (show all news)
+     * index (show all news)
      */
     public function index() {
         $news = $this->model->getAllNews();
@@ -33,10 +33,9 @@ class Home extends Controller {
      */
     public function deleteNews($news_id) {
         include_once '../application/authentication/Auth.php';
-        $mysqli = new mysqli("localhost", "root", "", "news");
 
         Auth::security_session_start();
-        if (Auth::check_login($mysqli) == true) {
+        if (Auth::check_login($this->myDb) == true) {
             $this->model->deleteNews($news_id);
                 header('location: ' . URL . '');
         } else {

@@ -26,7 +26,7 @@
         </form>
         <?php
 
-        if (Auth::check_login($mysqli) == true) {
+        if (Auth::check_login($this->myDb) == true) {
             echo '<p>Currently logged ' . $logged . ' as ' . htmlentities($_SESSION['username']) . '.</p>';
             echo '<p>Do you want to change user? <a href="login/logout">Log out</a>.</p>';
         } else {

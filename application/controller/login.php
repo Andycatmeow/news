@@ -7,11 +7,10 @@ class Login extends Controller {
      * Index
      */
     public function index() {
-        $mysqli = new mysqli("localhost", "root", "", "news");
 
         Auth::security_session_start();
 
-        if (Auth::check_login($mysqli) == true) {
+        if (Auth::check_login($this->myDb) == true) {
             $logged = 'in';
         } else {
             $logged = 'out';
@@ -24,7 +23,6 @@ class Login extends Controller {
      * login
      */
     public function loginProcess() {
-        $mysqli = new mysqli("localhost", "root", "", "news");
          
         Auth::security_session_start();
          
@@ -32,7 +30,7 @@ class Login extends Controller {
             $email = $_POST['email'];
             $password = $_POST['password'];
          
-            if (Auth::login($email, $password, $mysqli) == true) {
+            if (Auth::login($email, $password, $this->myDb) == true) {
                 header('location: ' . URL . '');
             } else {
                 echo "Login failed <br>";

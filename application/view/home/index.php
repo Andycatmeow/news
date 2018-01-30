@@ -2,11 +2,9 @@
 include_once '../application/authentication/Auth.php';
 include_once '../application/libs/Parsedown.php';
 
-$mysqli = new mysqli("localhost", "root", "", "news");
-
 ?>
 
-<?PHP if (Auth::check_login($mysqli) == true) { $login = true; ?>
+<?PHP if (Auth::check_login($this->myDb) == true) { $login = true; ?>
 <div class="write">
     <div class="box">
         <h3>Write news</h3>

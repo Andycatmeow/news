@@ -1,7 +1,6 @@
 <?php
 
 include_once '../application/authentication/Auth.php';
-$mysqli = new mysqli("localhost", "root", "", "news");
 
 Auth::security_session_start();
 
@@ -24,7 +23,7 @@ Auth::security_session_start();
 
         <!-- authentication -->
         <?php
-        if (Auth::check_login($mysqli) == true) {
+        if (Auth::check_login($this->myDb) == true) {
             echo '<div class="auth main">';
             echo "<p>Currently logged in as <span><b>'".$_SESSION['username']."'</b></span></p>";
             echo '<p><a href="'.URL.'login/logout">Logout</a></p>';

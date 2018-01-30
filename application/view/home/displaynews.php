@@ -2,9 +2,8 @@
 
 include_once '../application/authentication/Auth.php';
 include_once '../application/libs/Parsedown.php';
-$mysqli = new mysqli("localhost", "root", "", "news");
 
-if (Auth::check_login($mysqli) == true) {
+if (Auth::check_login($this->myDb) == true) {
     $login = true;
 } else {
     $login = false;
