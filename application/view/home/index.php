@@ -12,7 +12,8 @@ include_once '../application/libs/Parsedown.php';
             <label>Title *</label>
             <input type="text" name="title" value="" required />
             <label>Entry *</label>
-            <textarea name="entry" value="" placeholder="What do you have to say?" required></textarea>
+            <textarea id="mde" name="" value="" placeholder="What do you have to say?" ></textarea>
+            <textarea id="mde-data" name="entry" style="display: none;"></textarea>
 
             <input type="submit" name="submit_add_news" value="Submit" />
         </form>
@@ -56,3 +57,8 @@ include_once '../application/libs/Parsedown.php';
     }
 
 ?>
+
+<script type="text/javascript" src="<?php echo URL; ?>js/simplemde.min.js"></script>
+<script>
+    var simplemde = new SimpleMDE({ element: document.getElementById("mde") });
+</script>

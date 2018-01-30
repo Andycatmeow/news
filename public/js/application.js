@@ -16,7 +16,11 @@ function showDeleteNotifier() {
 }
 
 function callAdd() {
+
+    document.getElementById("mde-data").value = simplemde.value();
+
     var msg   = $('#submit-article-form').serialize();
+
     $.ajax({
         type: 'POST',
         url: url+'home/addnews',
@@ -25,6 +29,7 @@ function callAdd() {
             $( "#result" ).after( "<div>" + data + "</div>" );
             clearform();
             showSuccessNotifier();
+            simplemde.value("");
         },
         error: function(xhr, str) {
             alert('Возникла ошибка: ' + xhr.responseCode);

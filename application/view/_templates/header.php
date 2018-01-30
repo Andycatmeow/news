@@ -12,6 +12,7 @@ Auth::security_session_start();
     <meta charset="utf-8">
     <title>News</title>
     <link href="<?php echo URL; ?>css/style.css" rel="stylesheet">
+    <link href="<?php echo URL; ?>css/simplemde.min.css" rel="stylesheet">
     <link href="<?php echo URL; ?>css/notifier.css" rel="stylesheet">
 </head>
 <body>
